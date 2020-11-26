@@ -1,0 +1,7 @@
+node_modules
+
+# TypeORM
+ormconfig.json
+
+# Database
+database/db.sqlite
