@@ -38,11 +38,6 @@ export default class CreateBooks1606826345837 implements MigrationInterface {
               type: 'int',
               isNullable: false,
             },
-            {
-              name: 'image',
-              type: 'varchar',
-              isNullable: true,
-            },
           ],
         })
       );

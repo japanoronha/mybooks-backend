@@ -1,5 +1,5 @@
 import Shelf from "@modules/shelves/infra/typeorm/entities/Shelf";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('books')
 class Book{
@@ -21,12 +21,9 @@ class Book{
   @Column()
   author: string;
 
-  @Column()
-  image: string;
-
-  @ManyToOne(type => Shelf)
+  @ManyToOne(() => Shelf, shelf => shelf.books)
   @JoinColumn({name: 'shelf_id', referencedColumnName: 'id'})
-  shelf: Shelf;
+  shelf_id: number;
 }
 
 export default Book;
