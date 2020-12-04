@@ -1,5 +1,5 @@
 import Book from '@modules/books/infra/typeorm/entities/Book';
-import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('shelves')
 class Shelf {
@@ -9,7 +9,7 @@ class Shelf {
   @Column()
   title: string;
 
-  @OneToMany(() => Book, book => book.shelf.id)
+  @OneToMany(() => Book, book => book.shelf_id, {eager: true})
   books: Book[];
 }
 
